@@ -6,7 +6,7 @@ public class Runner {
 		if (args.length != 1)
 			System.out.println("Wrong number of arguments!");
 		
-		ShowMenu run = new ShowMenu();
+		ShowProgress run = new ShowProgress();
 		run.studentProgress(args[0]);
 	}
 

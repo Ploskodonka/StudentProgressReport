@@ -8,19 +8,22 @@ import java.util.List;
 
 public class Curriculum {
 	private String name;
-	private Calendar startDate;
-	private Calendar endDate;
+	private Calendar startDate = Calendar.getInstance();
+	private Calendar endDate = Calendar.getInstance();
 	private int curriculumDuration;
 	private List<Courses> courseList = new ArrayList<Courses>();
 	
 	public Curriculum(String name, String startDate) {
-		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+		
 		try {
-			this.startDate.setTime(format.parse(startDate));
+			this.startDate.setTime(sdf.parse(startDate));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
+			System.out.println("Error!");
 			e.printStackTrace();
 		}
+		
 		this.name = name;
 	}
 	
@@ -33,7 +36,7 @@ public class Curriculum {
 			//by adding extra 16 hours (which we get from finding how many hours we have between the end of a work day and the beginning
 			//of a new work day (from 6 PM to 10 AM)
 			
-			if (courseList.get(0).getDuration() > (18 - startDate.get(Calendar.HOUR_OF_DAY))) {
+			if (courseList.get(0).getDuration() % 8 > (18 - startDate.get(Calendar.HOUR_OF_DAY))) {
 				endDate.set(startDate.get(Calendar.DATE) + courseList.get(0).getDuration() / 8 + 1, startDate.get(Calendar.MONTH), startDate.get(Calendar.YEAR), 
 						startDate.get(Calendar.HOUR_OF_DAY) + ((courseList.get(0).getDuration() % 8 - (18 - startDate.get(Calendar.HOUR_OF_DAY))) + 16 + (18 - startDate.get(Calendar.HOUR_OF_DAY))),
 						startDate.get(Calendar.MINUTE));
@@ -69,6 +72,10 @@ public class Curriculum {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public Calendar getStartDate() {
+		return startDate;
 	}
 	
 	public Calendar getEndDate() {

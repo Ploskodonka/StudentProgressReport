@@ -57,8 +57,11 @@ public class ShowProgress {
 		
 		ivanov.printCurrentLearningStatus("short");
 		petrov.printCurrentLearningStatus("short");
+<<<<<<< HEAD
 		
 		ivanov.printCurrentLearningStatus("long");
 		petrov.printCurrentLearningStatus("long");
+=======
+>>>>>>> origin/master
 	}
 }

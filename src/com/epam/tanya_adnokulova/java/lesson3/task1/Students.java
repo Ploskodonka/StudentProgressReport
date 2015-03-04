@@ -3,7 +3,10 @@ package com.epam.tanya_adnokulova.java.lesson3.task1;
 import java.util.Calendar;
 import java.util.Formatter;
 import java.util.GregorianCalendar;
+<<<<<<< HEAD
 import java.util.TimeZone;
+=======
+>>>>>>> origin/master
 //import java.util.List;
 
 public class Students {
@@ -25,8 +28,12 @@ public class Students {
 	//Calculates the difference between 2 dates in working days, hours and minutes
 	public String timeRemains(Calendar endDate, Calendar currentDate) {
 		int timeRemains = 0; //total hours without taking working hours in consideration
+<<<<<<< HEAD
 		String status = "\nFinished course. Passed time: ";
 		boolean flag = true;
+=======
+		String status = "Finished course. Passed time: ";
+>>>>>>> origin/master
 		
 		if (endDate.after(currentDate)) {
 			Calendar temp = endDate;
@@ -79,12 +86,16 @@ public class Students {
 			timeRemains = (deltaDay*24 + deltaHour) - (16 * deltaDay);
 		} 
 		
+<<<<<<< HEAD
 		if (flag) {
 			return status + timeRemains / 8 + "days " + timeRemains % 8 + "h " + deltaMin + "min\n";
 		}
 		else {
 			return status + timeRemains / 8 + "days " + (timeRemains % 8 + 1) + "h " + deltaMin + "min\n";
 		}
+=======
+		return status + timeRemains / 8 + "days " + timeRemains % 8 + "hours " + deltaMin + "minutes";
+>>>>>>> origin/master
 	}
 	
 	private  int getDaysInMonth(int year, int month) {
@@ -96,6 +107,7 @@ public class Students {
 		//List<Courses> courses = curriculum.getCourseList();
 
 		Calendar currentDate = Calendar.getInstance();
+<<<<<<< HEAD
 		currentDate.setTimeZone(TimeZone.getTimeZone("Europe/Samara"));
 		
 		Formatter formatStartDate = new Formatter();
@@ -121,6 +133,20 @@ public class Students {
 				break;
 			default:
 				break;
+=======
+
+		switch (version) {
+		case "short":
+			System.out.println(name + " (" + curriculum.getName() + ") - " + timeRemains(curriculum.getEndDate(), currentDate));
+			break;
+		case "long":
+			System.out.println(name + "\nWorking Time: from 10AM to 6PM\nCurriculum: " + curriculum.getName() + "\nCurriculum duration: " 
+					+ curriculum.getCurriculumDuration() + "\nStart date: " + curriculum.getStartDate() + "\nEnd date: " + curriculum.getEndDate()
+					+ timeRemains(curriculum.getEndDate(), currentDate));
+			break;
+		default:
+			break;
+>>>>>>> origin/master
 		}
 
 		// if (courses != null && courses.size() != 0) {
